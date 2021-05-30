@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Path-Finding-Visualizer</title>
+  <link rel="icon" href="newlogo.jpeg">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+  <link rel="stylesheet" href="grid.css">
+</head>
+
+<body>
+
+  
+  <div class="super">
+  <div class="container">
+      <img class = "image" src="newlogo.jpeg" alt="LOGO" >
+
+
+    <div id="btn-group">
+      <button type="button" id="Algo-btn" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Algorithms
+      </button>
+      <ul class="dropdown-menu" id="temp">
+        <li><button id="Dijkstra" onclick="callDijkstra()" class="dropdown-item" href="#">Dijkstra</button></li>
+        <li><button id="BFS" onclick="callBFS()" class="dropdown-item" href="#">BFS</button></li>
+        <li><button id="DFS" onclick="callDFS()" class="dropdown-item" href="#">DFS</button></li>
+        <li><button id="astar" onclick="callAstarE()" class="dropdown-item" href="#">A* - Euclid</button></li>
+        <li><button onclick="callAstarM()" class="dropdown-item" href="#">A* - Manhattan</button></li>
+        <li><button id="bdijkstra" onclick="callBiDijkstra()" class="dropdown-item" href="#">Bidirectional
+            Dijkstra</button></li>
+        <li><button onclick="callc()" class="dropdown-item" href="#">Concurrent Dijkstra</button></li>
+      </ul>
+    </div>
+
+    <div id="reset">
+      <button class="btn btn-success btn-lg" onlcick = "reset()">Reset</button>
+    </div>
+    
+
+    <div class="Maze">
+      <button id="makeGrid" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
+       aria-expanded="false">
+        Mazes
+      </button>
+      <ul class="dropdown-menu">
+        <li><button onclick="makeSimple()" class="dropdown-item" href="#">Simple/Random</button></li>
+        <li><button onclick="RecursiveDivison()" class="dropdown-item" href="#">RecursiveDivison</button></li>
+        <li><button onclick="RecursiveDivisonV()" class="dropdown-item" href="#">RecursiveDivison Horizontal</button>
+        </li>
+        <li><button onclick="RecursiveDivisonH()" class="dropdown-item" href="#">RecursiveDivison Vertical</button></li>
+      </ul>
+    </div>
+
+
+    <div class="info" style = "background-color: sienna;">
+
+       <!-- <div class="start"
+        style="background-color: #00FF00; position: absolute; width : 20px; height : 20px ; left : 10px;top : 10px ; border : 1px solid white;">
+      </div>
+      <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; ">StartNode</h3>
+
+      <div class="start"
+        style="background-color: #FF0000; position: absolute; width : 20px; height : 20px ; left : 10px;top : 50px ; border : 1px solid white;">
+      </div>
+      <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; top : 40px ;  ">TargetNode</h3>
+
+      <div class="start"
+        style="background-color: #0000FF; position: absolute; width : 20px; height : 20px ; left : 10px;top : 90px ;border : 1px solid white; ">
+      </div>
+      <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; top : 82px ;  ">Walls</h3>
+
+      <div class="start"
+        style="background-color: #228B22; position: absolute; width : 20px; height : 20px ; left : 10px;top : 130px ; border : 1px solid white;">
+      </div>
+      <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; top : 125px ;  ">Paths</h3>
+
+      <div class="start"
+        style="background-color: #FFD700; position: absolute; width : 20px; height : 20px ; left : 10px;top : 170px ; border : 1px solid white;">
+      </div>
+      <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; top : 165px ;  ">VisitedNode
+      </h3> -->
+    </div> 
+
+  </div> 
+ 
+
+  <canvas id="canvas"  ></canvas>
+</div>
+
+  <script src="Node.js"></script>
+  <script src="dijkstra.js"></script>
+  <script src="bfs.js"></script>
+  <script src="astar.js"></script>
+  <script src="biDijkstra.js"></script>
+  <script src="dfs.js"></script>
+  <script src="grid.js"></script>
+  <script src="concurrent.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+    integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+    integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

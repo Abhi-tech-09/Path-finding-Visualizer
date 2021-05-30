@@ -1,0 +1,53 @@
+*{
+    padding : 0px ; 
+    margin : 0px ; 
+}
+
+body{
+    background-color : black;
+}
+
+.super{
+    display: grid;
+    grid-template-columns: 15%  85%;
+    margin : 0 ; 
+    padding : 0 ; 
+    height : 100vh ; 
+}
+
+.container{
+    display : grid ; 
+    grid-template-columns: 1fr;
+    grid-template-rows: 20% 10% 10% 10% 50%;
+    justify-content: center;
+    border : 1px  solid white ; 
+    border-right: 0;
+    height : 100% ; 
+    margin : 0px ;  
+    padding : 0px ; 
+}
+
+.image{
+    padding :0 ; 
+    margin: 0;
+    height : 90% ; 
+    width : 95% ; 
+}
+
+#btn-group{
+    margin:12px ; 
+}
+
+#reset{
+    margin:12px ; 
+}
+
+.Maze{
+    margin:12px; 
+}
+
+#canvas{
+    border : 1px solid white ;
+}
+
+
