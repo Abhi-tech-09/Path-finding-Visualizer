@@ -15,52 +15,53 @@
 
 <body>
 
-  
+
   <div class="super">
-  <div class="container">
-      <img class = "image" src="newlogo.jpeg" alt="LOGO" >
+    <div class="container">
+      <img class="image" src="newlogo.jpeg" alt="LOGO">
 
 
-    <div id="btn-group">
-      <button type="button" id="Algo-btn" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Algorithms
-      </button>
-      <ul class="dropdown-menu" id="temp">
-        <li><button id="Dijkstra" onclick="callDijkstra()" class="dropdown-item" href="#">Dijkstra</button></li>
-        <li><button id="BFS" onclick="callBFS()" class="dropdown-item" href="#">BFS</button></li>
-        <li><button id="DFS" onclick="callDFS()" class="dropdown-item" href="#">DFS</button></li>
-        <li><button id="astar" onclick="callAstarE()" class="dropdown-item" href="#">A* - Euclid</button></li>
-        <li><button onclick="callAstarM()" class="dropdown-item" href="#">A* - Manhattan</button></li>
-        <li><button id="bdijkstra" onclick="callBiDijkstra()" class="dropdown-item" href="#">Bidirectional
-            Dijkstra</button></li>
-        <li><button onclick="callc()" class="dropdown-item" href="#">Concurrent Dijkstra</button></li>
-      </ul>
-    </div>
+      <div id="btn-group">
+        <button type="button" id="Algo-btn" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Algorithms
+        </button>
+        <ul class="dropdown-menu" id="temp">
+          <li><button id="Dijkstra" onclick="callDijkstra()" class="dropdown-item" href="#">Dijkstra</button></li>
+          <li><button id="BFS" onclick="callBFS()" class="dropdown-item" href="#">BFS</button></li>
+          <li><button id="DFS" onclick="callDFS()" class="dropdown-item" href="#">DFS</button></li>
+          <li><button id="astar" onclick="callAstarE()" class="dropdown-item" href="#">A* - Euclid</button></li>
+          <li><button onclick="callAstarM()" class="dropdown-item" href="#">A* - Manhattan</button></li>
+          <li><button id="bdijkstra" onclick="callBiDijkstra()" class="dropdown-item" href="#">Bidirectional
+              Dijkstra</button></li>
+          <li><button onclick="callc()" class="dropdown-item" href="#">Concurrent Dijkstra</button></li>
+        </ul>
+      </div>
 
-    <div id="reset">
-      <button class="btn btn-success btn-lg" onlcick = "reset()">Reset</button>
-    </div>
-    
-
-    <div class="Maze">
-      <button id="makeGrid" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
-       aria-expanded="false">
-        Mazes
-      </button>
-      <ul class="dropdown-menu">
-        <li><button onclick="makeSimple()" class="dropdown-item" href="#">Simple/Random</button></li>
-        <li><button onclick="RecursiveDivison()" class="dropdown-item" href="#">RecursiveDivison</button></li>
-        <li><button onclick="RecursiveDivisonV()" class="dropdown-item" href="#">RecursiveDivison Horizontal</button>
-        </li>
-        <li><button onclick="RecursiveDivisonH()" class="dropdown-item" href="#">RecursiveDivison Vertical</button></li>
-      </ul>
-    </div>
+      <div id="reset">
+        <button class="btn btn-success btn-lg" onclick="reset()">Reset</button>
+      </div>
 
 
-    <div class="info" style = "background-color: sienna;">
+      <div class="Maze">
+        <button id="makeGrid" type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Mazes
+        </button>
+        <ul class="dropdown-menu">
+          <li><button onclick="makeSimple()" class="dropdown-item" href="#">Simple/Random</button></li>
+          <li><button onclick="RecursiveDivison()" class="dropdown-item" href="#">RecursiveDivison</button></li>
+          <li><button onclick="RecursiveDivisonV()" class="dropdown-item" href="#">RecursiveDivison Horizontal</button>
+          </li>
+          <li><button onclick="RecursiveDivisonH()" class="dropdown-item" href="#">RecursiveDivison Vertical</button>
+          </li>
+        </ul>
+      </div>
 
-       <!-- <div class="start"
+
+      <div class="info" style="background-color: sienna;">
+
+        <!-- <div class="start"
         style="background-color: #00FF00; position: absolute; width : 20px; height : 20px ; left : 10px;top : 10px ; border : 1px solid white;">
       </div>
       <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; ">StartNode</h3>
@@ -85,13 +86,13 @@
       </div>
       <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; top : 165px ;  ">VisitedNode
       </h3> -->
-    </div> 
+      </div>
 
-  </div> 
- 
+    </div>
 
-  <canvas id="canvas"  ></canvas>
-</div>
+
+    <canvas id="canvas"></canvas>
+  </div>
 
   <script src="Node.js"></script>
   <script src="dijkstra.js"></script>
