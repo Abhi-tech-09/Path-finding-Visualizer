@@ -21,11 +21,11 @@ Node.prototype.draw_node = async function (ctx, gap) {
         ctx.fill();
         ctx.fillStyle = '#00FF00';
         ctx.beginPath();
-        ctx.rect(this.x, this.y, this.myGap, this.myGap);
+        ctx.rect(this.x + parseInt(gap / 2) - this.myGap, this.y + parseInt(gap / 2) - this.myGap, 2 * this.myGap, 2 * this.myGap);
         ctx.closePath();
         ctx.fill();
         sleep(1);
-        if (this.myGap != gap)
+        if (this.myGap != parseInt(gap / 2))
             this.myGap += 1
 
     }
@@ -37,43 +37,39 @@ Node.prototype.draw_node = async function (ctx, gap) {
         ctx.fill();
         ctx.fillStyle = '#FF0000';
         ctx.beginPath();
-        ctx.rect(this.x, this.y, this.myGap, this.myGap);
+        ctx.rect(this.x + parseInt(gap / 2) - this.myGap, this.y + parseInt(gap / 2) - this.myGap, 2 * this.myGap, 2 * this.myGap);
         ctx.closePath();
         ctx.fill();
         sleep(1);
-        if (this.myGap != gap)
+        if (this.myGap != parseInt(gap / 2))
             this.myGap += 1
     }
     else if (this.state == 'w') {
-        ctx.fillStyle = '#AAAAAA';
-        ctx.beginPath();
-        ctx.rect(this.x, this.y, gap, gap);
-        ctx.closePath();
-        ctx.fill();
-        ctx.fillStyle = '#0000FF';
-        ctx.beginPath();
-        ctx.rect(this.x, this.y, this.myGap, this.myGap);
-        ctx.closePath();
-        ctx.fill();
-        sleep(0.1);
-        if (this.myGap != 0) {
-            if (this.myGap != gap)
-                this.myGap += 1
-            //         else if(this.myGap == gap+1){
-            //             ctx.fillStyle = '#AAAAAA' ; 
-            //             ctx.beginPath() ; 
-            //         ctx.rect(this.x ,this.y , gap+1 , gap+1 );
-            //         ctx.closePath() ; 
-            //         ctx.fill() ; 
-            //         ctx.fillStyle = '#0000FF' ;
-            //     ctx.beginPath() ; 
-            // ctx.rect(this.x ,this.y , gap , gap );
-            // ctx.closePath() ;
-            // ctx.fill() ;
-            // this.myGap = 0 ; 
-
-            //         }
+        if (this.myGap != parseInt(gap / 2)) {
+            ctx.fillStyle = '#AAAAAA';
+            ctx.beginPath();
+            ctx.rect(this.x, this.y, gap, gap);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = '#0000FF';
+            ctx.beginPath();
+            ctx.rect(this.x + parseInt(gap / 2) - this.myGap, this.y + parseInt(gap / 2) - this.myGap, 2 * this.myGap, 2 * this.myGap);
+            // ctx.arc(this.x + parseInt(gap/2) , this.y + parseInt(gap/2) , this.myGap , 0 ,2*Math.PI);
+            ctx.closePath();
+            ctx.fill();
+            sleep(1000);
         }
+        if (this.myGap != parseInt(gap / 2))
+            this.myGap += 1
+        else {
+            sleep(10000000);
+            ctx.fillStyle = '#0000FF';
+            ctx.beginPath();
+            ctx.rect(this.x, this.y, gap, gap);
+            ctx.closePath();
+            ctx.fill();
+        }
+
     }
     else if (this.state == 'e') {
         ctx.fillStyle = '#AAAAAA';
@@ -93,19 +89,28 @@ Node.prototype.draw_node = async function (ctx, gap) {
         this.myGap = gap - 1;
     }
     else if (this.state == 'p') {
-        ctx.fillStyle = '#FFD700';
-        ctx.beginPath();
-        ctx.rect(this.x, this.y, gap, gap);
-        ctx.closePath();
-        ctx.fill();
-        ctx.fillStyle = '#228B22';
-        ctx.beginPath();
-        ctx.rect(this.x + this.myGap, this.y, gap - this.myGap, gap);
-        ctx.closePath();
-        ctx.fill();
-        sleep(0.00001);
-        if (this.myGap != 0)
+        if (this.myGap != parseInt(gap / 2) + 1) {
+            ctx.fillStyle = '#FFD700';
+            ctx.beginPath();
+            ctx.rect(this.x, this.y, gap, gap);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = '#228B22';
+            ctx.beginPath();
+            ctx.rect(this.x + parseInt(gap / 2) - this.myGap, this.y + parseInt(gap / 2) - this.myGap, 2 * this.myGap, 2 * this.myGap);
+            ctx.closePath();
+            ctx.fill();
+            sleep(1);
+        }
+        if (this.myGap != parseInt(gap / 2) + 1)
             this.myGap -= 1
+        else {
+            ctx.fillStyle = '#228B22';
+            ctx.beginPath();
+            ctx.rect(this.x, this.y, gap, gap);
+            ctx.closePath();
+            ctx.fill();
+        }
     }
 
 }

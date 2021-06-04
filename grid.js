@@ -10,7 +10,7 @@ document.querySelector("#canvas").height = height - 3;
 var startNode;
 var finishNode;
 
-var gap = 15;//20 
+var gap = 16 ;
 
 // var total_rows = 30; //30
 // var total_cols = 50; //56
@@ -18,13 +18,15 @@ var total_rows = parseInt(Math.floor((height-3)/(gap+1))) ;
 console.log(total_rows) ; 
 var total_cols =  parseInt(Math.floor((width - 5)/(gap+1))) ; 
 
+var left_in_x = (width - 5) - (total_cols*(gap+1)) ; 
+var left_in_y = (height - 3) - (total_rows*(gap+1)) ; 
 
 var grid = [];
 for (var r = 0 ; r < total_rows ; r++){
     grid.push([])
     for(var c = 0 ; c < total_cols ; c++){
         //e stands for empty
-        node = new Node(r , c ,  c * (gap+1) , r * (gap +1) , 'e' , total_rows , total_cols) ; 
+        node = new Node(r , c , parseInt(left_in_x/2) + c * (gap+1) , parseInt(left_in_y/2) +  r * (gap +1) , 'e' , total_rows , total_cols) ; 
         grid[r][c] = node ;  
     }
 }
