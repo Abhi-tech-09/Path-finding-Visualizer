@@ -456,7 +456,8 @@ function reset() {
     }
     pressX = new Node();
     pressY = new Node();
-    clicked = 0;
+    clickedStart = 0;
+    clickedFinish = 0;
 }
 
 initialise();
