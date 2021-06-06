@@ -33,7 +33,6 @@ astarE:function(startNode , finishNode , grid){
         closedList.push(currentSquare) ; 
         visitedNodes.push(currentSquare);
         if(currentSquare == finishNode){
-            console.log(parent)
             ASTAR.setPath(parent , visitedNodes ,startNode , finishNode);
             return ;  
         }
@@ -95,7 +94,6 @@ astarM:function(startNode , finishNode , grid){
         closedList.push(currentSquare) ; 
         visitedNodes.push(currentSquare);
         if(currentSquare == finishNode){
-            console.log(parent)
             ASTAR.setPath(parent , visitedNodes ,startNode , finishNode);
             return ;  
         }
@@ -123,6 +121,7 @@ astarM:function(startNode , finishNode , grid){
         }
 
     }
+    alert("Path not found")
 } ,
 
 //Manhattan 
@@ -166,7 +165,7 @@ setPath: async function(parent , visitedNodes ,startNode ,  finishNode){
     while(crawl != -1){  
         await sleep(100) ; 
         if(crawl != startNode && crawl != finishNode && crawl != null)
-            crawl.state = 'p'  , console.log(crawl);
+            crawl.state = 'p';
         crawl = parent.get(crawl) ; 
         
     }

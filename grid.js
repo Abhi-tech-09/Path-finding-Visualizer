@@ -2,43 +2,76 @@ var canvas;
 var ctx;
 
 var s = document.querySelector(".container").offsetWidth;
-var width = window.innerWidth - s ;
-var  height = window.innerHeight;
-document.querySelector("#canvas").width = width - 5; 
+var width = window.innerWidth - s;
+var height = window.innerHeight;
+document.querySelector("#canvas").width = width - 5;
 document.querySelector("#canvas").height = height - 3;
 
 var startNode;
 var finishNode;
 
-var gap = 16 ;
+var gap = 16;
 
 // var total_rows = 30; //30
 // var total_cols = 50; //56
-var total_rows = parseInt(Math.floor((height-3)/(gap+1))) ; 
-console.log(total_rows) ; 
-var total_cols =  parseInt(Math.floor((width - 5)/(gap+1))) ; 
+var total_rows = parseInt(Math.floor((height - 3) / (gap + 1)));
+var total_cols = parseInt(Math.floor((width - 5) / (gap + 1)));
 
-var left_in_x = (width - 5) - (total_cols*(gap+1)) ; 
-var left_in_y = (height - 3) - (total_rows*(gap+1)) ; 
+var left_in_x = (width - 5) - (total_cols * (gap + 1));
+var left_in_y = (height - 3) - (total_rows * (gap + 1));
 
 var grid = [];
-for (var r = 0 ; r < total_rows ; r++){
+for (var r = 0; r < total_rows; r++) {
     grid.push([])
-    for(var c = 0 ; c < total_cols ; c++){
+    for (var c = 0; c < total_cols; c++) {
         //e stands for empty
-        node = new Node(r , c , parseInt(left_in_x/2) + c * (gap+1) , parseInt(left_in_y/2) +  r * (gap +1) , 'e' , total_rows , total_cols) ; 
-        grid[r][c] = node ;  
+        node = new Node(r, c, parseInt(left_in_x / 2) + c * (gap + 1), parseInt(left_in_y / 2 + 0.5) + r * (gap + 1), 'e', total_rows, total_cols);
+        grid[r][c] = node;
     }
 }
 
+function resizegap1() {
+    reset();
+    gap += 1;
+    total_rows = parseInt(Math.floor((height - 3) / (gap + 1)));
+    total_cols = parseInt(Math.floor((width - 5) / (gap + 1)));
+    left_in_x = (width - 5) - (total_cols * (gap + 1));
+    left_in_y = (height - 3) - (total_rows * (gap + 1));
+    grid = [];
+    for (var r = 0; r < total_rows; r++) {
+        grid.push([])
+        for (var c = 0; c < total_cols; c++) {
+            //e stands for empty
+            node = new Node(r, c, parseInt(left_in_x / 2) + c * (gap + 1), parseInt(left_in_y / 2 + 0.5) + r * (gap + 1), 'e', total_rows, total_cols);
+            grid[r][c] = node;
+        }
+    }
+}
+function resizegap2() {
+    reset();
+    gap -= 1;
+    total_rows = parseInt(Math.floor((height - 3) / (gap + 1)));
+    total_cols = parseInt(Math.floor((width - 5) / (gap + 1)));
+    left_in_x = (width - 5) - (total_cols * (gap + 1));
+    left_in_y = (height - 3) - (total_rows * (gap + 1));
+    grid = [];
+    for (var r = 0; r < total_rows; r++) {
+        grid.push([])
+        for (var c = 0; c < total_cols; c++) {
+            //e stands for empty
+            node = new Node(r, c, parseInt(left_in_x / 2) + c * (gap + 1), parseInt(left_in_y / 2 + 0.5) + r * (gap + 1), 'e', total_rows, total_cols);
+            grid[r][c] = node;
+        }
+    }
+}
 function draw() {
     clear();
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, width, height);
 
-    for (var i = 0 ; i < total_rows ; i++){
-        for (var j = 0 ; j < total_cols ; j++){
-            grid[i][j].draw_node(ctx , gap) ; 
+    for (var i = 0; i < total_rows; i++) {
+        for (var j = 0; j < total_cols; j++) {
+            grid[i][j].draw_node(ctx, gap);
         }
     }
 
@@ -57,7 +90,8 @@ function initialise() {
 
 var pressX = 0;
 var pressY = 0;
-var clicked = 0;
+var clickedStart = 0;
+var clickedFinish = 0;
 function drag(e) {
     var mx = e.clientX - canvas.offsetLeft;
     var my = e.clientY - canvas.offsetTop;
@@ -67,8 +101,8 @@ function drag(e) {
             let currX = grid[r][c].x;
             let currY = grid[r][c].y;
             if (currX <= mx && mx <= (currX + gap) && currY <= my && my <= (currY + gap)) {
-                if (clicked == 1 && grid[r][c].state != 's') {
-                    clicked++;
+                if (clickedFinish == 0 && grid[r][c].state != 's') {
+                    clickedFinish = 1;
                     grid[r][c].state = 'f';
                     finishNode = grid[r][c];
                 }
@@ -97,15 +131,25 @@ function pressed(e) {
             let currX = grid[r][c].x;
             let currY = grid[r][c].y;
             if (currX <= mx && mx <= (currX + gap) && currY <= my && my <= (currY + gap)) {
-                if (clicked == 0) {
-                    clicked++;
+                if (clickedStart == 0) {
+                    clickedStart = 1;
                     grid[r][c].state = 's';
                     startNode = grid[r][c];
                 }
-                else if (clicked == 1 && grid[r][c].state != 's') {
-                    clicked++;
+                else if(grid[r][c].state == 's'){
+                    clickedStart = 0 ;
+                    grid[r][c].state = 'e' ; 
+                    startNode = null ; 
+                }
+                else if (clickedFinish == 0 && grid[r][c].state != 's' && clickedStart == 1) {
+                    clickedFinish = 1;
                     grid[r][c].state = 'f';
                     finishNode = grid[r][c];
+                }
+                else if(clickedFinish == 1 && grid[r][c].state == 'f'){
+                    clickedFinish = 0 ;
+                    grid[r][c].state = 'e' ; 
+                    finishNode = null ; 
                 }
                 else if (grid[r][c].state == "e" && grid[r][c].state != 's' && grid[r][c].state != 'f') {
                     grid[r][c].state = "w";
@@ -415,6 +459,6 @@ function reset() {
     clicked = 0;
 }
 
-initialise(); 
+initialise();
 canvas.onmousedown = pressed;
 canvas.onmouseup = up;
