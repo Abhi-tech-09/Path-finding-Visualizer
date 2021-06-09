@@ -5,6 +5,6 @@
 <h4>
 
 
-So here is our project [Algo-Visualizer](https://abhi-tech-09.github.io/AlgoVisualizer/) which is a visual representation of how different path-finding algorithms work.
+So here is our project [Path-finding-Visualizer](https://abhi-tech-09.github.io/Path-finding-Visualizer/) which is a visual representation of how different path-finding algorithms work.
 
 </h4>
