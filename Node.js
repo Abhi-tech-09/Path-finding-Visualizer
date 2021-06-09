@@ -135,8 +135,10 @@ function cmp(nodeA, nodeB) {
 function disable() {
     document.getElementById("Algo-btn").disabled = true;
     document.getElementById("makeGrid").disabled = true;
+    document.getElementById("resetBtn").disabled = true ;
 }
 function enable() {
     document.getElementById("Algo-btn").disabled = false;
     document.getElementById("makeGrid").disabled = false;
+    document.getElementById("resetBtn").disabled = false ;
 }
