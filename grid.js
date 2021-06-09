@@ -4,39 +4,40 @@ var ctx;
 var s = document.querySelector(".container").offsetWidth;
 var width = window.innerWidth - s;
 var height = window.innerHeight;
-document.querySelector("#canvas").width = width - 5;
-document.querySelector("#canvas").height = height - 3;
+document.querySelector("#canvas").width = width - 2;
+document.querySelector("#canvas").height = height - 2;
 
 var startNode;
 var finishNode;
 
-var gap = 16;
+var gap = 20;
 
 // var total_rows = 30; //30
 // var total_cols = 50; //56
-var total_rows = parseInt(Math.floor((height - 3) / (gap + 1)));
-var total_cols = parseInt(Math.floor((width - 5) / (gap + 1)));
+//Doing Some Shitty Calculations
+var total_rows = parseInt(Math.floor((height - 2) / (gap + 1.5)));
+var total_cols = parseInt(Math.floor((width - 2) / (gap + 1.5)));
 
-var left_in_x = (width - 5) - (total_cols * (gap + 1));
-var left_in_y = (height - 3) - (total_rows * (gap + 1));
+var left_in_x = (width -2 ) - (total_cols * (gap + 1.5));
+var left_in_y = (height - 2) - (total_rows * (gap + 1.5));
 
 var grid = [];
 for (var r = 0; r < total_rows; r++) {
     grid.push([])
     for (var c = 0; c < total_cols; c++) {
         //e stands for empty
-        node = new Node(r, c, parseInt(left_in_x / 2) + c * (gap + 1), parseInt(left_in_y / 2 + 0.5) + r * (gap + 1), 'e', total_rows, total_cols);
+        node = new Node(r, c, parseInt(left_in_x / 2) + c * (gap + 1.5), parseInt(left_in_y / 2 + 0.5) + r * (gap + 1.5), 'e', total_rows, total_cols);
         grid[r][c] = node;
     }
 }
 
 function resizegap1() {
     reset();
-    gap += 1;
-    total_rows = parseInt(Math.floor((height - 3) / (gap + 1)));
-    total_cols = parseInt(Math.floor((width - 5) / (gap + 1)));
-    left_in_x = (width - 5) - (total_cols * (gap + 1));
-    left_in_y = (height - 3) - (total_rows * (gap + 1));
+    gap += 2;
+    total_rows = parseInt(Math.floor((height - 2) / (gap + 1)));
+    total_cols = parseInt(Math.floor((width - 2) / (gap + 1)));
+    left_in_x = (width - 2) - (total_cols * (gap + 1));
+    left_in_y = (height - 2) - (total_rows * (gap + 1));
     grid = [];
     for (var r = 0; r < total_rows; r++) {
         grid.push([])
@@ -49,7 +50,10 @@ function resizegap1() {
 }
 function resizegap2() {
     reset();
-    gap -= 1;
+    if((gap-1) <= 16){
+        alert("Website Might crash , Do at your own Risk !!")
+    }
+    gap -= 2;
     total_rows = parseInt(Math.floor((height - 3) / (gap + 1)));
     total_cols = parseInt(Math.floor((width - 5) / (gap + 1)));
     left_in_x = (width - 5) - (total_cols * (gap + 1));
@@ -66,7 +70,7 @@ function resizegap2() {
 }
 function draw() {
     clear();
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "#0c3547";
     ctx.fillRect(0, 0, width, height);
 
     for (var i = 0; i < total_rows; i++) {
@@ -270,10 +274,10 @@ function callc() {
 }
 
 async function meraRecursion(r0, c0, rm, cm) {
-    if (Math.abs(rm - r0) < 5) {
+    if (Math.abs(rm - r0) <= 5) {
         return;
     }
-    if (Math.abs(cm - c0) < 5) {
+    if (Math.abs(cm - c0) <= 5) {
         return;
     }
     let horizontal = cm - c0;

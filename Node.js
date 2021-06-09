@@ -12,67 +12,58 @@ function Node(row, col, x, y, state, total_rows, total_cols) {
     this.visited = false;
 }
 
-Node.prototype.draw_node = async function (ctx, gap) {
-    if (this.state == 's') {
+Node.prototype.draw_bg = function(ctx , gap){
         ctx.fillStyle = '#AAAAAA';
         ctx.beginPath();
         ctx.rect(this.x, this.y, gap, gap);
         ctx.closePath();
         ctx.fill();
+}
+
+Node.prototype.draw_node = async function (ctx, gap) {
+    var midGap = parseInt(gap / 2) ; 
+    if (this.state == 's') {
+        if (this.myGap != midGap)
+            this.draw_bg(ctx,gap) ; 
         ctx.fillStyle = '#00FF00';
         ctx.beginPath();
-        ctx.rect(this.x + parseInt(gap / 2) - this.myGap, this.y + parseInt(gap / 2) - this.myGap, 2 * this.myGap, 2 * this.myGap);
+        ctx.rect(this.x + midGap - this.myGap, this.y + midGap - this.myGap, 2 * this.myGap, 2 * this.myGap);
         ctx.closePath();
         ctx.fill();
         sleep(1);
-        if (this.myGap != parseInt(gap / 2))
+        if (this.myGap != midGap)
             this.myGap += 1
 
     }
     else if (this.state == 'f') {
-        ctx.fillStyle = '#AAAAAA';
-        ctx.beginPath();
-        ctx.rect(this.x, this.y, gap, gap);
-        ctx.closePath();
-        ctx.fill();
+        if (this.myGap != midGap)
+            this.draw_bg(ctx,gap) ;
         ctx.fillStyle = '#FF0000';
         ctx.beginPath();
-        ctx.rect(this.x + parseInt(gap / 2) - this.myGap, this.y + parseInt(gap / 2) - this.myGap, 2 * this.myGap, 2 * this.myGap);
+        ctx.rect(this.x + midGap - this.myGap, this.y + midGap - this.myGap, 2 * this.myGap, 2 * this.myGap);
         ctx.closePath();
         ctx.fill();
         sleep(1);
-        if (this.myGap != parseInt(gap / 2))
+        if (this.myGap != midGap)
             this.myGap += 1
     }
     else if (this.state == 'w') {
-        if (this.myGap != parseInt(gap / 2)) {
-            ctx.fillStyle = '#AAAAAA';
-            ctx.beginPath();
-            ctx.rect(this.x, this.y, gap, gap);
-            ctx.closePath();
-            ctx.fill();
-            ctx.fillStyle = '#0000FF';
-            ctx.beginPath();
-            ctx.rect(this.x + parseInt(gap / 2) - this.myGap, this.y + parseInt(gap / 2) - this.myGap, 2 * this.myGap, 2 * this.myGap);
-            // ctx.arc(this.x + parseInt(gap/2) , this.y + parseInt(gap/2) , this.myGap , 0 ,2*Math.PI);
-            ctx.closePath();
-            ctx.fill();
-            sleep(1000);
-        }
-        if (this.myGap != parseInt(gap / 2))
+        if (this.myGap != midGap)
+            this.draw_bg(ctx,gap) ;
+        
+        ctx.fillStyle = '#0000FF';
+        ctx.beginPath();
+        ctx.rect(this.x + midGap - this.myGap, this.y + midGap - this.myGap, 2 * this.myGap, 2 * this.myGap);
+        ctx.closePath();
+        ctx.fill();
+        sleep(1);
+        
+        if (this.myGap != midGap)
             this.myGap += 1
-        else {
-            sleep(10000000);
-            ctx.fillStyle = '#0000FF';
-            ctx.beginPath();
-            ctx.rect(this.x, this.y, gap, gap);
-            ctx.closePath();
-            ctx.fill();
-        }
 
     }
     else if (this.state == 'e') {
-        ctx.fillStyle = '#AAAAAA';
+        ctx.fillStyle = '#cbc0c0';
         ctx.beginPath();
         ctx.rect(this.x, this.y, gap, gap);
         ctx.closePath();
@@ -86,28 +77,23 @@ Node.prototype.draw_node = async function (ctx, gap) {
         ctx.rect(this.x, this.y, gap, gap);
         ctx.closePath();
         ctx.fill();
-        this.myGap = gap - 1;
     }
     else if (this.state == 'p') {
-        if (this.myGap != parseInt(gap / 2) + 1) {
-            ctx.fillStyle = '#FFD700';
-            ctx.beginPath();
-            ctx.rect(this.x, this.y, gap, gap);
-            ctx.closePath();
-            ctx.fill();
+
+        if(this.myGap != midGap){
+            this.draw_bg(ctx,gap);
             ctx.fillStyle = '#228B22';
             ctx.beginPath();
-            ctx.rect(this.x + parseInt(gap / 2) - this.myGap, this.y + parseInt(gap / 2) - this.myGap, 2 * this.myGap, 2 * this.myGap);
+            ctx.arc(this.x + midGap , this.y + midGap , this.myGap , 0 ,2*Math.PI);
             ctx.closePath();
             ctx.fill();
-            sleep(1);
+            sleep(0.1);
+            this.myGap += 1
         }
-        if (this.myGap != parseInt(gap / 2) + 1)
-            this.myGap -= 1
-        else {
+        else{
             ctx.fillStyle = '#228B22';
             ctx.beginPath();
-            ctx.rect(this.x, this.y, gap, gap);
+            ctx.rect(this.x , this.y , gap , gap);
             ctx.closePath();
             ctx.fill();
         }

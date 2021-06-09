@@ -18,7 +18,7 @@
 
   <div class="super">
     <div class="container">
-      <img class="image" src="newlogo.jpeg" alt="LOGO">
+      <img class="image" src="path-finder.png" alt="LOGO">
 
 
       <div id="btn-group">
@@ -40,9 +40,11 @@
 
       <div id="reset">
         <button class="btn btn-success btn-lg" onclick="reset()">Reset</button>
-        Gap
-        <button class="btn btn-success btn-sm" onclick = "resizegap1()">+</button>
-        <button class="btn btn-success btn-sm" onclick = "resizegap2()">-</button>
+        <div class="gap">
+          <h3>Gap</h3>
+          <button class="btn btn-success btn-sm" onclick="resizegap1()">+</button>
+          <button class="btn btn-success btn-sm" onclick="resizegap2()">-</button>
+        </div>
       </div>
 
 
@@ -62,33 +64,48 @@
       </div>
 
 
-      <div class="info" style="background-color: sienna;">
+      <div class="info" >
 
-        <!-- <div class="start"
-        style="background-color: #00FF00; position: absolute; width : 20px; height : 20px ; left : 10px;top : 10px ; border : 1px solid white;">
+        <div class="space">
+          <div class="start"
+        style="background-color: #00FF00; border : 1px solid white;">
       </div>
-      <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; ">StartNode</h3>
+      <h3 style="font-weight: 100; color: whitesmoke;  ">StartNode</h3>
+        </div>
+        
+      <div class="space">
+        <div class="start"
+        style="background-color: #FF0000; border : 1px solid white;">
+      </div>
+      <h3 style="font-weight: 100; color: whitesmoke; ">TargetNode</h3>
+      </div>
+      
 
-      <div class="start"
-        style="background-color: #FF0000; position: absolute; width : 20px; height : 20px ; left : 10px;top : 50px ; border : 1px solid white;">
+      <div class="space">
+        <div class="start"
+        style="background-color: #0000FF; border : 1px solid white; ">
       </div>
-      <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; top : 40px ;  ">TargetNode</h3>
+      <h3 style="font-weight: 100; color: whitesmoke;   ">Walls</h3>
 
-      <div class="start"
-        style="background-color: #0000FF; position: absolute; width : 20px; height : 20px ; left : 10px;top : 90px ;border : 1px solid white; ">
       </div>
-      <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; top : 82px ;  ">Walls</h3>
+      
+      <div class="space">
+        <div class="start"
+        style="background-color: #228B22; border : 1px solid white;">
+      </div>
+      <h3 style="font-weight: 100; color: whitesmoke; ">Paths</h3>
 
-      <div class="start"
-        style="background-color: #228B22; position: absolute; width : 20px; height : 20px ; left : 10px;top : 130px ; border : 1px solid white;">
       </div>
-      <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; top : 125px ;  ">Paths</h3>
 
-      <div class="start"
-        style="background-color: #FFD700; position: absolute; width : 20px; height : 20px ; left : 10px;top : 170px ; border : 1px solid white;">
+      <div class="space">
+        <div class="start"
+        style="background-color: #FFD700;  border : 1px solid white;">
       </div>
-      <h3 style="font-weight: 100; color: whitesmoke; position : absolute ; left : 50px; top : 165px ;  ">VisitedNode
-      </h3> -->
+      <h3 style="font-weight: 100; color: whitesmoke;   ">VisitedNode
+      </h3>
+      </div>
+      
+      
       </div>
 
     </div>

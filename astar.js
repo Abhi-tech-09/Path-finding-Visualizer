@@ -163,7 +163,7 @@ setPath: async function(parent , visitedNodes ,startNode ,  finishNode){
     await ASTAR.updateVisited(visitedNodes);
     crawl = parent.get(finishNode) ;
     while(crawl != -1){  
-        await sleep(100) ; 
+        await sleep(1) ; 
         if(crawl != startNode && crawl != finishNode && crawl != null)
             crawl.state = 'p';
         crawl = parent.get(crawl) ; 
@@ -177,7 +177,7 @@ setPath: async function(parent , visitedNodes ,startNode ,  finishNode){
 updateVisited:async function (visitedNodes){
     for (var i = 0 ; i < visitedNodes.length ; i++){
         if(visitedNodes[i].state != 's' && visitedNodes[i].state != 'f' && visitedNodes[i].state != 'p' ){
-            await sleep(2) ; 
+            await sleep(1) ; 
             visitedNodes[i].state = 'd' ; 
         }
     }

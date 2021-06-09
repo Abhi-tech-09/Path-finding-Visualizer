@@ -136,7 +136,7 @@ var CD = {
     mysetPath : async function (parent ,  finishNode){
         crawl = parent.get(finishNode) ; 
         while(crawl != -1){
-            await sleep(10) ; 
+            await sleep(1) ; 
             if(crawl != startNode && crawl != finishNode && crawl != null)
                 crawl.state = 'p' ;
             crawl = parent.get(crawl) ; 
