@@ -462,6 +462,8 @@ function resetNodes() {
 }
 
 function reset() {
+    startNode = null ; 
+    finishNode = null ; 
     for (var i = 0; i < total_rows; i++) {
         for (var j = 0; j < total_cols; j++) {
             grid[i][j].state = 'e';
