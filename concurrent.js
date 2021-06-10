@@ -132,7 +132,7 @@ var CD = {
                 } 
             }
         }
-        alert("Path Not found") ; 
+        animate("No Path found") ; 
     enable();
     } , 
     mysetPath : async function (parent ,  finishNode){

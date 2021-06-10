@@ -60,6 +60,8 @@ astarE:function(startNode , finishNode , grid){
         }
 
     }
+    animate("No Path found") ; 
+    enable() ; 
 } , 
 
 astarM:function(startNode , finishNode , grid){
@@ -121,7 +123,7 @@ astarM:function(startNode , finishNode , grid){
         }
 
     }
-    alert("Path not found")
+    animate("No Path found") ; 
     enable() ; 
 } ,
 

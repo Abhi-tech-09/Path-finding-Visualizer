@@ -31,7 +31,7 @@ dijkstra : async function(start , finish){
             }
         }
     }
-    alert("Path Not found") ; 
+    animate("No Path found") ; 
     enable();
     
 } ,

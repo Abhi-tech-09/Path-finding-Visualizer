@@ -6,6 +6,10 @@ var width = window.innerWidth - s;
 var height = window.innerHeight;
 document.querySelector("#canvas").width = width - 2;
 document.querySelector("#canvas").height = height - 2;
+document.querySelector("#ok").addEventListener('click' , function(){
+    document.querySelector(".block").style.opacity = 0 ;  
+    document.querySelector("#ok").style.pointerEvents = "none";
+});
 
 var startNode;
 var finishNode;
@@ -169,6 +173,14 @@ function pressed(e) {
         }
     }
 }
+
+function animate(s){
+    document.querySelector(".block").style.opacity = 1 ; 
+    document.querySelector(".text").innerHTML = `<p>${s}</p>`;
+    document.querySelector("#ok").style.pointerEvents = "all" ; 
+    
+}
+
 
 function up() {
     canvas.onmousemove = null;
@@ -435,7 +447,7 @@ async function RecursiveDivisonH() {
 
 function resetNodes() {
     if (startNode == null || finishNode == null) {
-        alert("Select Start and finsh Node.");
+        animate("Select start and finish Node.")
     }
     for (var i = 0; i < total_rows; i++) {
         for (var j = 0; j < total_cols; j++) {

@@ -28,7 +28,7 @@ bfs : function(startNode , finishNode){
             }
         } 
     }
-    alert("Path Not found") ; 
+    animate("No Path found") ; 
     enable();
 
 } , 
