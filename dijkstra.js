@@ -31,7 +31,8 @@ dijkstra : async function(start , finish){
             }
         }
     }
-    return parent ;
+    alert("Path Not found") ; 
+    enable();
     
 } ,
 

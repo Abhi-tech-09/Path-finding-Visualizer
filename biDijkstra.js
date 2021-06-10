@@ -66,6 +66,8 @@ BiDijkstra:async function (start, finish , grid ) {
         }
 
     }
+    alert("Path Not found") ; 
+    enable();
 
 },
 

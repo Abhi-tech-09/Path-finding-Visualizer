@@ -28,8 +28,8 @@ dfs:function(startNode , finishNode){
             }
         }
     }
-    
-    return ; 
+    alert("Path Not found") ; 
+    enable();
 },
 
 dfssetPath : async function (parent , visitedNodes , startNode , finishNode){

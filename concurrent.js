@@ -132,6 +132,8 @@ var CD = {
                 } 
             }
         }
+        alert("Path Not found") ; 
+    enable();
     } , 
     mysetPath : async function (parent ,  finishNode){
         crawl = parent.get(finishNode) ; 

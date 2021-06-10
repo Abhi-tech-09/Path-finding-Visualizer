@@ -122,6 +122,7 @@ astarM:function(startNode , finishNode , grid){
 
     }
     alert("Path not found")
+    enable() ; 
 } ,
 
 //Manhattan 
