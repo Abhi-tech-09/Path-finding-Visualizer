@@ -11,7 +11,7 @@ Hello Everyone !!
 Welcome to my Path-Finder-Visualizer where I have tried implementing various algorithms using Html canvas and vanilla javascript.
 <br>
 
-The Project is hosted at  [Path-finding-Visualizer](https://abhi-tech-09.github.io/Path-finding-Visualizer/) 
+The Project is hosted at  [Path-finding-Visualizer](https://thirsty-meninsky-e9e60b.netlify.app/) 
 </h4>
 
 # _**Tech Used**_
