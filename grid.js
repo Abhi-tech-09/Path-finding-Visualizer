@@ -365,9 +365,9 @@ async function makeSimple() {
     let cnt = 0;
     while (cnt != 200) {
         cnt += 1;
-        let rr = Math.floor(Math.random() * 30);
-        let cc = Math.floor(Math.random() * 56);
-        await sleep(10);
+        let rr = Math.floor(Math.random() * total_rows);
+        let cc = Math.floor(Math.random() * total_cols);
+        await sleep(11);
         grid[rr][cc].state = 'w';
     }
 }
@@ -482,6 +482,8 @@ function reset() {
     clickedStart = 0;
     clickedFinish = 0;
 }
+
+
 
 initialise();
 canvas.onmousedown = pressed;
