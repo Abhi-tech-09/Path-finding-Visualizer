@@ -16,8 +16,6 @@ var finishNode;
 
 var gap = 20;
 
-// var total_rows = 30; //30
-// var total_cols = 50; //56
 //Doing Some Shitty Calculations
 var total_rows = parseInt(Math.floor((height - 2) / (gap + 1.5)));
 var total_cols = parseInt(Math.floor((width - 2) / (gap + 1.5)));
@@ -179,6 +177,13 @@ function animate(s){
     document.querySelector(".text").innerHTML = `<p>${s}</p>`;
     document.querySelector("#ok").style.pointerEvents = "all" ; 
     
+}
+
+function skip(){
+    const div = document.querySelector(".tutorial") ; 
+    // document.querySelector(".tutorial").style.opacity = 0 ; 
+    // document.querySelector(".skip").style.pointerEvents = "none" ; 
+    div.parentNode.removeChild(div) ; 
 }
 
 

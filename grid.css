@@ -5,6 +5,86 @@
     
 }
 
+.tutorial{
+    background: rgb(0 0 0 / 94%);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.intro{
+    opacity : 1 ; 
+    position: relative;
+    top: 20%;
+    text-align: center;
+}
+
+
+h1{
+    animation: colorChange 10s linear infinite;
+}
+
+@keyframes colorChange {
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: green;}
+  }
+
+.changeText{
+    position: relative;
+    top: 20%;
+    width: fit-content;
+    margin: auto;
+}
+
+.change:after{
+    content : ' '; 
+    animation : changeText 10s infinite linear ; 
+}
+
+@keyframes changeText{
+    0%{
+        content : "Dijkstra" ; 
+        color: #18d8df;
+    }
+    20%{
+        content : "A* Algo" ; 
+        color: #18d8df;
+    }
+    35%{
+        content : "DFS" ; 
+        color: #18d8df;
+    }
+    60%{
+        content : "Bellman Ford" ; 
+        color: #18d8df;
+    }
+    80%{
+        content : "Floyd-Warshall" ; 
+        color: #18d8df;
+    }
+    100%{
+        content : "BFS" ; 
+        color: #18d8df;
+    }
+}
+
+.video{
+    position: relative;
+    top: 22%;
+    margin: auto;
+    width: fit-content;
+}
+
+.skip{
+    position: relative;
+    margin: auto;
+    top: 30%;
+    left: 50%;
+}
+
 
 
 .super{
